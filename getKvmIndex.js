@@ -1,14 +1,8 @@
-/**
- * Created with JetBrains WebStorm.
- * User: Boroda
- * Date: 27.06.13
- * Time: 18:52
- * To change this template use File | Settings | File Templates.
- */
+
 var snmp = require('snmp-native');
 var async = require('async');
 var kvmIndex=[],
-    switchIps = ['99.99.99.99','99.99.99.99','99.99.99.99'];
+    switchIps = ['99.99.99.99','99.99.99.99','99.99.99.99']; //should be the real ip's of Switches
 function getMac(session, room, callback) {
     session.getSubtree({ oid: [1,3,6,1,2,1,17,4,3,1,2] }, function (error, varbinds) {
         if (error) {
@@ -93,7 +87,7 @@ function goGo(ip_addr, callback1){
             room='vip'
             break
     };
-    var session = new snmp.Session({ host: ip_addr, community: 'community@vlan' });
+    var session = new snmp.Session({ host: ip_addr, community: 'community@vlan' }); //Should be real SNMP community
     async.series([
         function (callback) {
             getMac(session, room, callback);
@@ -111,7 +105,7 @@ function goGo(ip_addr, callback1){
             callback1();
     });
 };
-
+//for each of switches get SNMP request
 exports.getSNMP = function (callback) {
    async.each(switchIps, function(switchIp, callback1) {
    goGo(switchIp, callback1);

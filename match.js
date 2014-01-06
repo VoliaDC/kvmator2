@@ -3,7 +3,9 @@ var portToSt = require('./portToSt');
 var async = require('async');
 var app1 = require("./app.js");
 var kvmIndex;
+//kvmIndex - global variable for all files
 
+//SNMP gets mac's in decimal format: translating them into hexadecimal to be able compare with user's entered
 var decToHex = function (callback) {
         for (var j=0; j<kvmIndex.length; j++){
             var temp=kvmIndex[j].mac.split('.');
@@ -18,6 +20,8 @@ var decToHex = function (callback) {
         }
     callback();
     };
+
+//Compare DB's macs with founded and add to KVMindex mac address and KVMid
 function match(callback){
     kvm.findAll(function(kvms){
         var kvmLenght=kvms.length;
@@ -37,6 +41,8 @@ function match(callback){
         callback();
     })
 };
+
+//Searching the rack id('st') by port number&room.
 function matchSt (getPortToSt, callback){
     var room;
     switch (getPortToSt) {

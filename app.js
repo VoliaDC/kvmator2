@@ -26,6 +26,7 @@ if ('development' == app.get('env')) {
 app.get('/kvm/add', function(req,res){
     res.render('kvmadd');
 })
+
 app.get('/kvm/:kvmid', function(req,res){
     kvm.get(req.params.kvmid, function(kvm){
         if (kvm.length > 0) {
@@ -55,7 +56,6 @@ app.get('/', function(req,res){
             kvmSNMP.kvmIndexReset();
         },
         function (callback) {
-          //  console.log(match.kvmIndex);
             callback();
         }, function (){
             res.render('index', {macKvmTest:match.kvmIndex});
@@ -81,11 +81,6 @@ app.post('/kvm/del', function(req,res){
         res.redirect('/kvm');
     });
 })
-/*app.use(function(req,res){
-    if (res.status(404)) {
-        res.send('404 not found');
-    }
-})*/
 
 
 

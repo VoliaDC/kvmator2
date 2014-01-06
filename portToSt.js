@@ -100,6 +100,9 @@ var portSt2 = [
         {port:'47', st:'287'},
         {port:'48', st:'287'}
     ];
+/*
+* Переписати враховуючи, що getPortToSt1 цього не робить, а лише інсертить
+* */
 db.portst1.find(function (err,result) {
     if (result.length > 0) {
         console.log("Db1 is not empty");
