@@ -1,12 +1,14 @@
-kvmator2
-========
+##KVMATOR2
+
 This web app been designed for DC Volia proposals.
 
-It negotiates with Datacenter's equipment through SNMP and parse it into user-friendly view.
+**KVMATOR2** helps to find [KVM](http://en.wikipedia.org/wiki/KVM_switch) location.
 
-You can see it at [77.120.101.101](http://77.120.101.101)
+It negotiates with Datacenter's equipment through [SNMP](http://en.wikipedia.org/wiki/Simple_Network_Management_Protocol) and parses it into user-friendly view.
 
-Technolony stack:
+How it works: [77.120.101.101](http://77.120.101.101)
+
+Technology stack:
 
 1. Node.js
   * Express
