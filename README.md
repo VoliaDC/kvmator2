@@ -4,7 +4,7 @@ This web app been designed for DC Volia proposals.
 
 It negotiates with Datacenter's equipment through SNMP and parse it into user-friendly view.
 
-You can see it at [77.120.101.101](77.120.101.101)
+You can see it at [77.120.101.101](http://77.120.101.101)
 
 Technolony stack:
 
